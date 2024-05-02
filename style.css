@@ -1,0 +1,102 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+img{
+  border-radius: 10px;
+}
+.border{
+  border-style: solid;
+  float:initial;
+}
+body {
+  padding-top:65px;
+}
+.carousel-caption {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+#carouselExampleCaptions:hover .carousel-caption {
+  opacity: 1;
+}
+.side-padding {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.bottom-padding {
+  padding-bottom: 10px;
+}
+.top-padding {
+  padding-top: 10px;
+}
+.center{
+  text-align:center;
+}
+.spinner-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+.modalOverlay{
+  display:block;
+  position:fixed;
+  align-self: center;
+  align-items: center;
+  z-index: 1;
+  left:0;
+  top: 0;
+  width:auto;
+  height:auto;
+  background-color: rgba(0,0,0,0.4);
+  padding-top: 60px;
+}
+.modalContent{
+  background-color: #fefefe;
+  margin:5% auto;
+  padding:20px;
+  border:1px solid #888;
+  width: 80%;
+  border-radius: 10px;
+}
+.closeButton{
+  color:#aaa;
+  float:right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.trigger {
+  width: 100px;
+  height: 100px;
+  border: 5px solid #999;
+  background: #ddd; 
+  position: relative;
+  float: right;
+  transform: translate(500px,500px);
+}
+.box {
+  display: inline-block;
+  background: grey;
+  width: 40%;
+  height: 20%;
+  transition: transform 500ms ease-in-out;
+  pointer-events: none;
+  position: absolute;
+  z-index: 2;
+}
+.content {
+  position: absolute;
+  z-index: 1;
+}
+.trigger:hover .box {
+  transition: ease-in-out 0.3;
+  opacity:0;
+}
+.donate {
+  text-align: center;
+}
+.tranparent {
+  display: none;
+}
