@@ -67,10 +67,11 @@ var GetCaroselHTML = function(imgs, alts, labels, descs,size,color=['makeColor']
   return c;
 }
 
-
+var imageThatIhavetoupload = 'https://i.imgur.com/0GRA7l6.png';
 function LoadContentsafterSize(){
    contents = [
-    `This is Home`,`<nav id="navbar-example2" class="navbar bg-body-tertiary px-3 mb-3">
+    `<div  class='center'><h1 style = 'padding-top:50px;'>Tide Project</h1><p class='bigtxt'>By Artur Misiurev and Ian Linder</p><p>Big Money fishing group should enter into the competition “3rd Annual Blues for DU Bluefish Tournament”. This competition takes place on June 7th to June 9th.</p><img style = "float: center;" src=${imageThatIhavetoupload}></img><h1>Tides for June
+    </h1>${table()}</div>`,`<nav id="navbar-example2" class="navbar bg-body-tertiary px-3 mb-3">
       <a class="navbar-brand" href="#">Index</a>
       <ul class="nav nav-pills">
         <li class="nav-item">
@@ -116,7 +117,8 @@ function LoadContentsafterSize(){
       <p>Tides represent a captivating interplay between celestial bodies and Earth's oceans, embodying the interconnectedness of our planet's systems. From their origins in gravitational physics to their far-reaching impacts on coastal environments and human activities, tides serve as a constant reminder of the intricate dance of nature.</p>
       <p>As we continue to study and harness the forces of tides, we gain valuable insights into the mechanisms driving Earth's dynamic systems. Whether for scientific inquiry, sustainable development, or simply marveling at the wonders of the natural world, understanding tides enriches our appreciation of the vast and diverse tapestry of life on our planet.</p>
       
-    </div>`,``,``,``,`
+    </div>`,``,``,`
+    <button data-bs-toggle="modal" data-bs-target="#quizModal" class="btn btn-primary">Take Quiz</button>`,`
     <h1 class='center' style = 'padding-top:50px;'>Fun Facts about tides</h1>
   <ul class="list-group list-group-flush center top-padding" style='padding-left:${paragraphPadding}px;padding-right:${paragraphPadding}px;'>
     <li class="list-group-item">
@@ -159,14 +161,13 @@ function LoadContentsafterSize(){
   </ul>`
   ]
 }
- 
-var pathappend=''
-,defaultContent = `${GetCaroselHTML([img[0],img[1],img[2],img[3]],['tide img','tide img','tide img','tide img'],['','','',''],['','','',''],[90,100])}`//<div id='trigger' class='trigger'><div id='box' class='box'></div></div>`
+var defaultContent = `${GetCaroselHTML([img[0],img[1],img[2],img[3]],['tide img','tide img','tide img','tide img'],['','','',''],['','','',''],[90,100])}`//<div id='trigger' class='trigger'><div id='box' class='box'></div></div>`
 
 ,LoadContent = function(page){
   console.log(paragraphPadding);
   var div = document.getElementById('other');
   div.innerHTML = contents[page];
+  if (page===4) {displayQuestion(); var o = document.getElementById('other'); o.style.paddingRight = '40%',o.style.paddingLeft = '40%',o.style.paddingTop = '100px';loadlistener()}
 }
 ,LoadDefaultContent=function(){
   console.log(paragraphPadding);
@@ -174,5 +175,315 @@ var pathappend=''
   div.innerHTML = defaultContent;
 }
 
-
-
+,table = () =>{return `<table border="1.5" style="padding-right:100px;padding-left:100px;">
+  <tr>
+    <th>DAY</th>
+    <th>R&S</th>
+    <th>1st TIDE</th>
+    <th>2nd TIDE</th>
+    <th>3rd TIDE</th>
+    <th>4th TIDE</th>
+    <th>Coefficent</th>
+  </tr>
+  <tr>
+    <td>Sat</td>
+ 
+    <td>5:38 am<br>8:19 pm</td>
+    <td>3:49 am<br>2.4 ft</td>
+    <td>9:52 am<br>0.3 ft</td>
+    <td>4:34 pm<br>2.5 ft</td>
+    <td>10:32 pm<br>0.4 ft</td>
+    <td>69  average</td>
+  </tr>
+  <tr>
+    <td>Sun</td>
+ 
+    <td>5:37 am<br>8:19 pm</td>
+    <td>4:46 am<br>2.4 ft</td>
+    <td>10:45 am<br>0.2 ft</td>
+    <td>5:32 pm<br>2.7 ft</td>
+    <td>11:37 pm<br>0.3 ft</td>
+    <td>76  high</td>
+  </tr>
+  <tr>
+    <td>Mon</td>
+ 
+    <td>5:37 am<br>8:20 pm</td>
+    <td>5:40 am<br>2.3 ft</td>
+    <td>11:38 am<br>0.1 ft</td>
+    <td>6:27 pm<br>2.8 ft</td>
+    <td>---</td>
+    <td>81  high</td>
+  </tr>
+  <tr>
+    <td>Tue</td>
+ 
+    <td>5:37 am<br>8:21 pm</td>
+    <td>12:38 am<br>0.3 ft</td>
+    <td>6:32 am<br>2.3 ft</td>
+    <td>12:29 pm<br>0.1 ft</td>
+    <td>7:20 pm<br>2.9 ft</td>
+    <td>85  high</td>
+  </tr>
+  <tr>
+    <td>Wed</td>
+ 
+    <td>5:37 am<br>8:21 pm</td>
+    <td>1:33 am<br>0.2 ft</td>
+    <td>7:24 am<br>2.2 ft</td>
+    <td>1:18 pm<br>0.1 ft</td>
+    <td>8:13 pm<br>3.0 ft</td>
+    <td>86  high</td>
+  </tr>
+  <tr>
+    <td>Thu</td>
+ 
+    <td>5:36 am<br>8:22 pm</td>
+    <td>2:25 am<br>0.2 ft</td>
+    <td>8:16 am<br>2.2 ft</td>
+    <td>2:05 pm<br>0.1 ft</td>
+    <td>9:05 pm<br>3.0 ft</td>
+    <td>84  high</td>
+  </tr>
+  <tr>
+    <td>Fri</td>
+ 
+    <td>5:36 am<br>8:22 pm</td>
+    <td>3:14 am<br>0.3 ft</td>
+    <td>9:06 am<br>2.2 ft</td>
+    <td>2:51 pm<br>0.1 ft</td>
+    <td>9:53 pm<br>2.9 ft</td>
+    <td>80  high</td>
+  </tr>
+  <tr>
+    <td>Sat</td>
+ 
+    <td>5:36 am<br>8:23 pm</td>
+    <td>4:03 am<br>0.3 ft</td>
+    <td>9:54 am<br>2.1 ft</td>
+    <td>3:38 pm<br>0.2 ft</td>
+    <td>10:39 pm<br>2.8 ft</td>
+    <td>74  high</td>
+  </tr>
+  <tr>
+    <td>Sun</td>
+ 
+    <td>5:36 am<br>8:23 pm</td>
+    <td>4:53 am<br>0.4 ft</td>
+    <td>10:41 am<br>2.1 ft</td>
+    <td>4:25 pm<br>0.3 ft</td>
+    <td>11:22 pm<br>2.7 ft</td>
+    <td>67  average</td>
+  </tr>
+  <tr>
+    <td>Mon</td>
+ 
+    <td>5:36 am<br>8:24 pm</td>
+    <td>5:44 am<br>0.5 ft</td>
+    <td>11:27 am<br>2.0 ft</td>
+    <td>5:16 pm<br>0.4 ft</td>
+    <td>---</td>
+    <td>60  average</td>
+  </tr>
+  <tr>
+    <td>Tue</td>
+ 
+    <td>5:36 am<br>8:24 pm</td>
+    <td>12:04 am<br>2.5 ft</td>
+    <td>6:35 am<br>0.6 ft</td>
+    <td>12:15 pm<br>2.0 ft</td>
+    <td>6:10 pm<br>0.5 ft</td>
+    <td>53  average</td>
+  </tr>
+  <tr>
+    <td>Wed</td>
+ 
+    <td>5:36 am<br>8:25 pm</td>
+    <td>12:46 am<br>2.4 ft</td>
+    <td>7:23 am<br>0.6 ft</td>
+    <td>1:07 pm<br>2.0 ft</td>
+    <td>7:07 pm<br>0.6 ft</td>
+    <td>47  low</td>
+  </tr>
+  <tr>
+    <td>Thu</td>
+ 
+    <td>5:36 am<br>8:25 pm</td>
+    <td>1:31 am<br>2.3 ft</td>
+    <td>8:07 am<br>0.6 ft</td>
+    <td>2:02 pm<br>2.0 ft</td>
+    <td>8:04 pm<br>0.7 ft</td>
+    <td>44  low</td>
+  </tr>
+  <tr>
+    <td>Fri</td>
+ 
+    <td>5:36 am<br>8:25 pm</td>
+    <td>2:18 am<br>2.1 ft</td>
+    <td>8:47 am<br>0.6 ft</td>
+    <td>3:00 pm<br>2.0 ft</td>
+    <td>9:02 pm<br>0.7 ft</td>
+    <td>43  low</td>
+  </tr>
+  <tr>
+    <td>Sat</td>
+ 
+    <td>5:36 am<br>8:26 pm</td>
+    <td>3:07 am<br>2.0 ft</td>
+    <td>9:25 am<br>0.5 ft</td>
+    <td>3:55 pm<br>2.1 ft</td>
+    <td>10:00 pm<br>0.7 ft</td>
+    <td>45  low</td>
+  </tr>
+  <tr>
+    <td>Sun</td>
+ 
+    <td>5:36 am<br>8:26 pm</td>
+    <td>3:56 am<br>1.9 ft</td>
+    <td>10:03 am<br>0.5 ft</td>
+    <td>4:46 pm<br>2.2 ft</td>
+    <td>10:58 pm<br>0.7 ft</td>
+    <td>49  low</td>
+  </tr>
+  <tr>
+    <td>Mon</td>
+ 
+    <td>5:36 am<br>8:26 pm</td>
+    <td>4:44 am<br>1.9 ft</td>
+    <td>10:43 am<br>0.4 ft</td>
+    <td>5:33 pm<br>2.3 ft</td>
+    <td>11:53 pm<br>0.6 ft</td>
+    <td>54  average</td>
+  </tr>
+  <tr>
+    <td>Tue</td>
+ 
+    <td>5:36 am<br>8:27 pm</td>
+    <td>5:30 am<br>1.9 ft</td>
+    <td>11:25 am<br>0.3 ft</td>
+    <td>6:18 pm<br>2.4 ft</td>
+    <td>---</td>
+    <td>60  average</td>
+  </tr>
+  <tr>
+    <td>Wed</td>
+ 
+    <td>5:36 am<br>8:27 pm</td>
+    <td>12:42 am<br>0.5 ft</td>
+    <td>6:16 am<br>1.8 ft</td>
+    <td>12:09 pm<br>0.2 ft</td>
+    <td>7:04 pm<br>2.5 ft</td>
+    <td>66  average</td>
+  </tr>
+  <tr>
+    <td>Thu</td>
+ 
+    <td>5:36 am<br>8:27 pm</td>
+    <td>1:27 am<br>0.5 ft</td>
+    <td>7:03 am<br>1.8 ft</td>
+    <td>12:53 pm<br>0.1 ft</td>
+    <td>7:51 pm<br>2.6 ft</td>
+    <td>72  high</td>
+  </tr>
+  <tr>
+    <td>Fri</td>
+ 
+    <td>5:37 am<br>8:27 pm</td>
+    <td>2:09 am<br>0.4 ft</td>
+    <td>7:50 am<br>1.9 ft</td>
+    <td>1:38 pm<br>0.0 ft</td>
+    <td>8:39 pm<br>2.7 ft</td>
+    <td>76  high</td>
+  </tr>
+  <tr>
+    <td>Sat</td>
+ 
+    <td>5:37 am<br>8:27 pm</td>
+    <td>2:51 am<br>0.4 ft</td>
+    <td>8:39 am<br>1.9 ft</td>
+    <td>2:24 pm<br>0.0 ft</td>
+    <td>9:26 pm<br>2.7 ft</td>
+    <td>79  high</td>
+  </tr>
+  <tr>
+    <td>Sun</td>
+ 
+    <td>5:37 am<br>8:27 pm</td>
+    <td>3:34 am<br>0.3 ft</td>
+    <td>9:29 am<br>2.0 ft</td>
+    <td>3:12 pm<br>-0.1 ft</td>
+    <td>10:13 pm<br>2.8 ft</td>
+    <td>79  high</td>
+  </tr>
+  <tr>
+    <td>Mon</td>
+ 
+    <td>5:38 am<br>8:28 pm</td>
+    <td>4:19 am<br>0.3 ft</td>
+    <td>10:20 am<br>2.0 ft</td>
+    <td>4:02 pm<br>0.0 ft</td>
+    <td>10:59 pm<br>2.8 ft</td>
+    <td>78  high</td>
+  </tr>
+  <tr>
+    <td>Tue</td>
+ 
+    <td>5:38 am<br>8:28 pm</td>
+    <td>5:07 am<br>0.3 ft</td>
+    <td>11:12 am<br>2.1 ft</td>
+    <td>4:57 pm<br>0.1 ft</td>
+    <td>11:46 pm<br>2.7 ft</td>
+    <td>76  high</td>
+  </tr>
+  <tr>
+    <td>Wed</td>
+ 
+    <td>5:38 am<br>8:28 pm</td>
+    <td>5:57 am<br>0.3 ft</td>
+    <td>12:06 pm<br>2.2 ft</td>
+    <td>5:57 pm<br>0.2 ft</td>
+    <td>---</td>
+    <td>72  high</td>
+  </tr>
+  <tr>
+    <td>Thu</td>
+ 
+    <td>5:39 am<br>8:28 pm</td>
+    <td>12:34 am<br>2.6 ft</td>
+    <td>6:48 am<br>0.2 ft</td>
+    <td>1:04 pm<br>2.3 ft</td>
+    <td>7:01 pm<br>0.3 ft</td>
+    <td>68  average</td>
+  </tr>
+  <tr>
+    <td>Fri</td>
+ 
+    <td>5:39 am<br>8:28 pm</td>
+    <td>1:26 am<br>2.5 ft</td>
+    <td>7:39 am<br>0.2 ft</td>
+    <td>2:07 pm<br>2.4 ft</td>
+    <td>8:06 pm<br>0.4 ft</td>
+    <td>65  average</td>
+  </tr>
+  <tr>
+    <td>Sat</td>
+ 
+    <td>5:39 am<br>8:28 pm</td>
+    <td>2:22 am<br>2.4 ft</td>
+    <td>8:30 am<br>0.2 ft</td>
+    <td>3:14 pm<br>2.5 ft</td>
+    <td>9:13 pm<br>0.4 ft</td>
+    <td>63  average</td>
+  </tr>
+  <tr>
+    <td>Sun</td>
+ 
+    <td>5:40 am<br>8:27 pm</td>
+    <td>3:21 am<br>2.3 ft</td>
+    <td>9:22 am<br>0.2 ft</td>
+    <td>4:20 pm<br>2.6 ft</td>
+    <td>10:20 pm<br>0.5 ft</td>
+    <td>62  average</td>
+  </tr>
+</table>
+`}
