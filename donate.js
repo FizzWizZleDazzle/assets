@@ -16,5 +16,5 @@ function Donate() {
     </div>
   </div>
 </div>`
-  document.body.appendChild(modalOverlay);
+  document.getElementById('modals').appendChild(modalOverlay);
 }
