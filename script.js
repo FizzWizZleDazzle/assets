@@ -26,7 +26,7 @@ function MakeEverythingVanishForASecBecauseYes() {
   }, loadtime);
 }
 
-var authors = "Artur S Misiurev (Lead Dev) & Ian C Linder (Lead Designer)\nWith some help from Ian Mehta and Elon Musk",
+var authors = "Artur S Misiurev (Lead Dev) & Ian C Linder (Lead Designer), With some webdev help from Ian Mehta and Elon Musk",
   hrefs = [
     "ReloadPage(0)",
     "ReloadPage(1)",
@@ -44,7 +44,7 @@ var authors = "Artur S Misiurev (Lead Dev) & Ian C Linder (Lead Designer)\nWith 
     //dropdown name
     "More",
     "Sources",
-    "Calculator",
+    "Quiz",
     "Fun Facts"
   ],
   title = "All About Tides",
@@ -127,7 +127,7 @@ var authors = "Artur S Misiurev (Lead Dev) & Ian C Linder (Lead Designer)\nWith 
     }
   }
   var LoadPage = function() {
-    document.body.innerHTML += `<div id="main"><div id="navbar"></div><div id="content"><div id="default"></div><div id="other"></div></div><div id="footer"></div></div>`
+    document.body.innerHTML += `<div id="main"><div id="navbar"></div><div id="content"><div id="default"></div><div id="other"></div></div><div id="footer"></div></div><div id='modals'></div>`
     var page = currentPage;
     document.getElementById('spinner').innerHTML=''
     ShowSpinner()
@@ -142,6 +142,7 @@ var authors = "Artur S Misiurev (Lead Dev) & Ian C Linder (Lead Designer)\nWith 
     LoadDefaultContent();
     LoadContent(page);
     LoadFooter();
+    quizContent()
     Donate()
     //document.getElementById('box').innerHTML='All About Tides \n' + hrefNames[page];
     //document.body.style.display = 'none';
@@ -155,6 +156,7 @@ var authors = "Artur S Misiurev (Lead Dev) & Ian C Linder (Lead Designer)\nWith 
     document.title = 'noTitle';
   },
   ReloadPage = function(page) {
+    removelistener()
     MakeEverythingVanishForASecBecauseYes();
     ShowSpinner();
     Clear();
